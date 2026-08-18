@@ -675,14 +675,10 @@ footer {
 
 #videoAula {
   width: 100%;
-
+  height: 550px;
   display: block;
-
   border-radius: 12px;
-
   background: #000;
-
-  max-height: 500px;
 }
 
 /* DESCRIÇÃO */
