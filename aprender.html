@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinaliza</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Sinaliza</div>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="aprender.html" class="ativo">Aprender</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="banner-aprender">
+        <h1>Aprender Libras</h1>
+        <p>Escolha uma categoria e comece sua jornada.</p>
+      </section>
+
+      <section class="categorias">
+        <div class="categoria-card">
+          <div class="icone">👋</div>
+          <h2>Cumprimentos Básicos</h2>
+          <button class="btn-comecar" type="button" onclick="abrirAula('Cumprimentos Básicos', 'assets/videos/Cumprimentos.MOV')">Ver Aula →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="icone">🔤</div>
+          <h2>Alfabeto Manual</h2>
+          <button class="btn-comecar" type="button" onclick="abrirAula('Alfabeto Manual', 'assets/videos/Alfabeto.MOV')">Ver Aula →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="icone">🔢</div>
+          <h2>Números</h2>
+          <button class="btn-comecar" type="button" onclick="abrirAula('Números', 'assets/videos/Números.MOV')">Ver Aula →</button>
+        </div>
+
+        <div class="categoria-card">
+          <div class="icone">🤟</div>
+          <h2>Sinais Básicos e Essenciais 1</h2>
+          <button class="btn-comecar" type="button" onclick="abrirAula('Sinais Básicos e Essenciais 1', 'assets/videos/Sinais essências 1.MOV')">Ver Aula →</button>
+        </div> 
+
+        <div class="categoria-card">
+          <div class="icone">🗣️</div>
+          <h2>Sinais Básicos e Essenciais 2</h2>
+          <button class="btn-comecar" type="button" onclick="abrirAula('Sinais Básicos e Essenciais 2', 'assets/videos/Sinais essências 2.MOV')">Ver Aula →</button>
+        </div>
+      </section>
+      <!-- MODAL DA AULA -->
+      <div id="modalAula" class="modal">
+        <div class="modal-conteudo">
+          <button class="fechar-modal" onclick="fecharAula()">×</button>
+
+          <h2 id="tituloAula">Título da aula</h2>
+
+          <video id="videoAula" controls>
+            <source id="fonteVideo" src="" type="video/mp4" />
+            Seu navegador não suporta vídeos.
+          </video>
+
+          <p id="descricaoAula">
+            Assista à aula para aprender os sinais básicos de Libras.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <footer>Desenvolvido para a Feira do Conhecimento • 2026</footer>
+    <script>
+      function abrirAula(titulo, video) {
+        // Coloca o título da aula
+        document.getElementById("tituloAula").textContent = titulo;
+
+        // Pega o vídeo
+        const videoAula = document.getElementById("videoAula");
+        const fonteVideo = document.getElementById("fonteVideo");
+
+        // Troca o vídeo
+        fonteVideo.src = video;
+
+        // Atualiza o vídeo
+        videoAula.load();
+
+        // Abre o modal
+        document.getElementById("modalAula").classList.add("aberto");
+
+        // Impede a página de rolar enquanto o modal está aberto
+        document.body.style.overflow = "hidden";
+      }
+
+      function fecharAula() {
+        const modal = document.getElementById("modalAula");
+        const videoAula = document.getElementById("videoAula");
+
+        // Para o vídeo
+        videoAula.pause();
+
+        // Fecha o modal
+        modal.classList.remove("aberto");
+
+        // Libera a rolagem da página
+        document.body.style.overflow = "";
+      }
+
+      // Fecha clicando fora do modal
+      document
+        .getElementById("modalAula")
+        .addEventListener("click", function (event) {
+          if (event.target === this) {
+            fecharAula();
+          }
+        });
+
+      // Fecha apertando ESC
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          fecharAula();
+        }
+      });
+    </script>
+  </body>
+</html>

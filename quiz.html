@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sinaliza</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤟</text></svg>"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="logo">Sinaliza</div>
+      <nav>
+        <a href="index.html">Início</a>
+        <a href="aprender.html">Aprender</a>
+        <a href="quiz.html" class="ativo">Quiz</a>
+        <a href="sobre.html">Sobre</a>
+      </nav>
+    </header>
+
+    <main class="quiz-container">
+      <div class="quiz-topo">
+        <span id="numeroQuestao">Questão 1 de 5</span>
+        <span id="respondidas">0 respondidas</span>
+      </div>
+
+      <div class="quiz-progresso" aria-label="Progresso do quiz">
+        <div id="barraQuiz"></div>
+      </div>
+
+      <section class="quiz">
+        <h1 id="pergunta"></h1>
+        <div id="imagemPergunta"></div>
+        <div id="respostas"></div>
+
+        <div class="navegacao-quiz">
+          <button id="anterior" class="btn-secundario" type="button">
+            ← Anterior
+          </button>
+          <button id="proxima" type="button">Próxima →</button>
+        </div>
+      </section>
+
+      <section class="resultado" id="resultado">
+        <h1>🎉 Quiz Finalizado!</h1>
+        <h2 id="pontuacao"></h2>
+        <p id="mensagemResultado"></p>
+        <button id="refazer" type="button">Refazer Quiz</button>
+      </section>
+    </main>
+
+    <div class="modal-overlay" id="modalAviso">
+      <div class="modal-aviso">
+        <div class="modal-icone">⚠️</div>
+
+        <h2>Questão não respondida</h2>
+
+        <p>Selecione uma alternativa antes de continuar.</p>
+
+        <button id="fecharModal">Entendi</button>
+      </div>
+
+      <script src="js/quiz.js"></script>
+    </div>
+  </body>
+</html>
